@@ -45,12 +45,26 @@ npm install gulp-concat --save-dev
 
 
 避免`pipe`破碎的：可以幫助debug
+make sure the task will break when there is an error
 ```
 npm install gulp-plumer --save-dev
 ```
 
 
 
+## 2. browserify gulp task
+
+* `gulp.src('src/main.js')`:all start form `main.js`
+* `.pipe(plumber())`: make sure the task will break when there is an error
+* `.pipe(browserify({ transform: 'reactify', debug: true}))`: 不懂`reactify`, debug的部分是建立map file.
+`.pipe(concat('main.js'))`: 把js原始檔案接起來成為一個檔案`main.js`
+`.pipe(gulp.dest('public'))`: 並且把上面那個接起來的檔案放到`public`資料夾裡面。
+
+
+基本上browserify是唯一的task,但還是要寫一下default task.
+
+
+## 自己把sass 加進來唄！
 
 
 
