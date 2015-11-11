@@ -1,0 +1,26 @@
+{
+  "name": "twi-react",
+  "version": "1.0.0",
+  "description": "A very simple twitter clone built with React and Flux",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jellynina/twi-react.git"
+  },
+  "author": "jellynina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jellynina/twi-react/issues"
+  },
+  "homepage": "https://github.com/jellynina/twi-react#readme",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-plumber": "^1.0.1",
+    "reactify": "^1.1.1"
+  }
+}
