@@ -2,6 +2,10 @@
 
 from scrach!
 
+This is a practice from [tuts+](https://tutsplus.com) course: [Build a Microblogging App With Flux and React][published url] by **[Andrew Burgess][instructor url]**
+
+The sourcecode from the class is [here][coursecode url]
+
 ## 1. Set up gulp
 
 ```
@@ -161,4 +165,6 @@ express()
 ***
 
 
-
+[published url]: https://code.tutsplus.com/courses/build-a-microblogging-app-with-flux-and-react
+[instructor url]: https://tutsplus.com/authors/andrew-burgess
+[coursecode url]: https://github.com/tutsplus/build-a-microblogging-app-with-react-and-flux
