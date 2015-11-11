@@ -94,7 +94,58 @@ bower install skeleton
 ```
 
 > 問題：怎麼讓bower install 到 `public/lib`?
+
 > 設定`.bowerrc` 寫上 `"directory": "public/lib"`
+
+
+## Start a Server
+
+start writing our server-side code with `EXPRESS`!
+
+```
+npm install express --save
+```
+
+另外需要`EJS` embedded JavaScript templating system.
+
+```
+npm install ejs --save
+```
+
+在`server.js`中，接著`express()`
+
+* `.set('view engine', 'ejs')` set the view engine to be `ejs`
+* `.use(express.static('./public'))`: 好像是將`'./public'`是為靜態？
+* anything in the public we're going to serve them
+* `.get()`:
+
+	這邊比較像是在做server request and response. render 出 index.很像在[profile_search](https://github.com/jellynina/TH_JSFull_profile_search)中的router and view.
+
+### server.js
+
+```js
+var express =require('express');
+
+express()
+  .set('view engine', 'ejs')
+  .use(express.static('./public'))
+  .get('*', function (req, res){
+    res.render('index');
+  })
+  .listen(3000);
+```
+
+
+> 通常`express()`會放到一個`var`裡面，但這邊不需要。
+
+### 建立`views`
+
+在`views/index.ejs`，然後就可以跑跑看`node server.js`，就會render出一個`index.html`。但其實我們沒有真的有一個`index.html`。
+
+
+
+
+
 
 
 
