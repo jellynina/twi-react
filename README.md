@@ -32,6 +32,9 @@ npm install gulp --save-dev
   },
 ```
 
+
+
+
 ### reactify
 
 ```
@@ -63,6 +66,7 @@ npm install gulp-plumer --save-dev
 
 基本上browserify是唯一的task,但還是要寫一下default task.
 
+***
 
 ## 自己把sass 加進來唄！
 
@@ -70,6 +74,23 @@ npm install gulp-plumer --save-dev
 * gulp-sass
 * gulp-sourcemaps
 * gulp-uglify
+
+***
+
+
+## Creat Index Page
+
+這個專案使用[Skeleton](http://getskeleton.com) framework
+
+```
+bower install skeleton
+```
+
+> 問題：怎麼讓bower install 到 `public/lib`?
+> 設定`.bowerrc` 寫上 `"directory": "public/lib"`
+
+
+
 
 
 

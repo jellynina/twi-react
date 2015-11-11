@@ -1,0 +1,24 @@
+{
+  "name": "twi-react",
+  "description": "A very simple twitter clone built with React and Flux",
+  "main": "server.js",
+  "authors": [
+    "jellynina"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jellynina/twi-react",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "~2.0.4"
+  }
+}
