@@ -6,13 +6,23 @@ var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var maps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
+var through2 = require('through2');
 
 
 
 gulp.task('browserify', function (){
   gulp.src('src/main.js')
     .pipe(plumber())
-    .pipe(browserify({ transform: 'reactify', debug: true}))
+    /* without gulp browserify */
+    .pipe(through2.obj(function (file, enc, next){
+      browserify(file.path, {debug: true})
+        .transform('reactify')
+        .bundle(function (err, res){
+          file.contents = res;
+          next(null, file);
+        });
+    }))
+    // .pipe(browserify({ transform: 'reactify', debug: true}))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('public'));
 });

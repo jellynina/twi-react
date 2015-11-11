@@ -32,8 +32,24 @@ npm install gulp --save-dev
   },
 ```
 
+因為不是使用`gulp-browerify`，所以需要安裝`through2`
 
+```
+npm install through2 --save-dev
+```
 
+並且在`plumber()`之後加上
+
+```js
+.pipe(through2.obj(function (file, enc, next){
+            browserify(file.path, {'debug': true})
+                .transform('reactify')
+                .bundle(function(err, res){
+                    file.contents = res;
+                    next(null, file);
+                });
+        }))
+```
 
 ### reactify
 
