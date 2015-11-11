@@ -66,6 +66,10 @@ npm install gulp-plumer --save-dev
 
 ## 自己把sass 加進來唄！
 
+需要的`devDependencies`:
+* gulp-sass
+* gulp-sourcemaps
+* gulp-uglify
 
 
 

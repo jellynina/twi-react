@@ -2,7 +2,12 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var reactify = require('reactify');
 var concat = require('gulp-concat');
-var plumber = require('gulp-plumber'); // make sure the task will break when there is an error
+var plumber = require('gulp-plumber');
+var sass = require('gulp-sass');
+var maps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
+
+
 
 gulp.task('browserify', function (){
   gulp.src('src/main.js') //all start form main.js
@@ -12,8 +17,18 @@ gulp.task('browserify', function (){
     .pipe(gulp.dest('public'));
 });
 
+gulp.task("compileSass", function (){
+  return gulp.src("scss/main.scss")
+  .pipe(plumber())
+  .pipe(maps.init())
+  .pipe(sass())
+  .pipe(maps.write('./')) //this path is going to be relative to our output directory ??
+  .pipe(gulp.dest("css"));
+});
+
 gulp.task('default', ['browserify']);
 
 gulp.task('watch', function (){
+  gulp.watch('scss/**/*.scss', ['compileSass']);
   gulp.watch('src/**/*.*', ['default']);
 });
