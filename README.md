@@ -146,10 +146,67 @@ express()
 
 在`views/index.ejs`，然後就可以跑跑看`node server.js`，就會render出一個`index.html`。但其實我們沒有真的有一個`index.html`。
 
+***
 
+# Server Side Code!!!
 
+> 呦呼呼～第一次寫server side code!!!! 我要灑花一下
 
+> `*･゜ﾟ･*:.｡..｡.:*･'(*ﾟ▽ﾟ*)'･*:.｡. .｡.:*･゜ﾟ･*`
 
+## User Account
+
+### Creating Constants and Actions
+
+先安裝`flux`
+
+```
+npm install flux@2 --save
+```
+
+`src/dispatcher.js` 調度員
+
+```js
+dispatcher.register(function (action) {
+    console.log(action);
+});
+```
+
+all action pass to dispatcher will be sent to register function.這樣可以從console知道什麼時候有什麼`action`.
+
+再來就是要建立actions的name list: `src/constants.js` flux patterns.
+
+```js
+module.exports = {
+  CHIRP: 'CHIRP',
+  CHIRPED: 'CHIRPED',
+  ...
+};
+```
+
+需要使用到action的時候只要打`constants.CHIRP`就可以了！
+
+這邊`'CHIRP'`表示**前端**的按下按鈕行為，`'CHIRPED'`則是**後端**接收到資料的行為。可以用時態來表示前後端的行為區別。
+
+一般在寫`actions.js`的時候每一個action都要建一個這樣的function
+
+```js
+exports.chirp = function (data) {
+    dispatcher.dispatch({
+        actionType: constants.CHIRP,
+        data: data
+    });
+};
+```
+
+同樣的夠重複很多遍，另一個比較簡單的方法就是直接抓`constants`裡面的list
+
+```js
+Object.keys(constants).forEach(function (key){});
+```
+
+* 在這裡面，要把原本全大寫配上`_`的action name 變成 camelcase的funciton name.
+* 然後在把原本的`function (data)`放進去。
 
 
 
