@@ -156,7 +156,43 @@ express()
 
 ## User Account
 
-### Creating Constants and Actions
+```
+npm install passport --save
+```
+
+`passport`是一個可以拿來建立使用者帳號資料的，不同的strategies會有不同的登入方式，這邊使用`passport-local`，這些資料存在`locallydb`。
+
+> 如：facebook登入
+
+### `login.js`
+
+```js
+var db = new LocallyDB('./.data');
+```
+
+將創造出來的使用者帳號密碼資料放在`.data`這個隱藏資料夾裡面。
+
+### Installing Middleware
+
+`3.3`: 好難懂...
+
+* `express-session`: keep user login accross multiple requests.
+* `cookie-parser`: 
+* `body-parser`
+
+```js
+var router = require('express').Router();
+var bodyPerser = require('body-perser');
+router.use(bodyPerser.urlencoded({ extended: true })); // Login page
+```
+
+這邊則是在登入表單之後啟動的，url encoded body.然後再去`passport.use()`去做比對。
+
+***
+
+# Client side
+
+## Creating Constants and Actions
 
 先安裝`flux`
 
@@ -211,6 +247,12 @@ Object.keys(constants).forEach(function (key){});
 
 
 ***
+
+# 擴充項目
+
+* facebook passport
+* sass
+
 
 ## 自己把sass 加進來唄！
 
