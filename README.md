@@ -188,6 +188,28 @@ router.use(bodyPerser.urlencoded({ extended: true })); // Login page
 
 這邊則是在登入表單之後啟動的，url encoded body.然後再去`passport.use()`去做比對。
 
+### Writing the Login Template
+
+先建立給login用的route.有`login` request得時候render `login` template. `view/login.ejs`
+
+```js
+router.get('/login', function (req, res) {
+  res.render('login');
+});
+```
+
+# Writing Login Routes
+
+在post singup 的部分
+
+> 1123, 3.5 看到08:31
+
+
+
+
+
+
+
 ***
 
 # Client side
@@ -252,6 +274,7 @@ Object.keys(constants).forEach(function (key){});
 
 * facebook passport
 * sass
+* use `ejs` partial
 
 
 ## 自己把sass 加進來唄！
